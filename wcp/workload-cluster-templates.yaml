@@ -7,7 +7,7 @@ spec:
   topology:
     controlPlane:
       replicas: 1
-      vmClass: best-effort-medium
+      vmClass: best-effort-large
       storageClass: ds
       volumes: 
         - name: etcd
@@ -20,7 +20,7 @@ spec:
     nodePools:
     - name: vlp-cls-1-pool
       replicas: 3
-      vmClass: best-effort-medium
+      vmClass: best-effort-large
       storageClass: ds
       volumes:
         - name: containerd
