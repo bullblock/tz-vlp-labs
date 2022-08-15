@@ -8,7 +8,7 @@ do
   printf "%c" "."
   sleep 5
 done
-printf "\n%s\n" "Okey, here you go !!!"
+printf "\n%s\n" "Okey, here you go !!! details please click the README on desktop"
 sleep 30
 exit
 
