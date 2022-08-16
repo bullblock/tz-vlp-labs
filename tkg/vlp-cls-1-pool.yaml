@@ -1,0 +1,16 @@
+name: vlp-cls-1-pool
+replicas: 1
+labels:
+  name: vlp-cls-1-pool
+  env: dev
+vsphere:
+  memoryMiB: 16384
+  diskGiB: 80
+  numCPUs: 4
+  datacenter: /dc
+  datastore: /dc/datastore/ds
+  storagePolicyName: ds
+  folder: /dc/vm/vlp-cls-1
+  resourcePool: /dc/host/cls/Resources/vlp-cls-1
+  vcIP: vc.vlp.tanzulab.io
+  network: /dc/network/dc-cls-workload
