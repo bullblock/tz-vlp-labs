@@ -8,6 +8,13 @@ do
   printf "%c" "."
   sleep 5
 done
+echo ""
+printf "%s" "few more mins, you may go to grab a cup of coffee ..."
+while ! (kubectl get pod -A | grep -i csi | grep -i running &> /dev/null)
+do
+  printf "%c" "."
+  sleep 5
+done
 printf "\n%s\n" "Okey, here you go !!! details please click the README on desktop"
 sleep 30
 exit
