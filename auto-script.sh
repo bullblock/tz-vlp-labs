@@ -10,7 +10,7 @@ do
 done
 echo ""
 printf "%s" "few more mins, you may go to grab a cup of coffee ..."
-while ! (kubectl get pod -A | grep -i csi | grep -i running &> /dev/null)
+while ! (kubectl get pod -A | grep -i csi | grep -v Running &> /dev/null)
 do
   printf "%c" "."
   sleep 5
