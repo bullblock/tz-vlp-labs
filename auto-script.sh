@@ -3,7 +3,7 @@ cd /home/devops/workspaces/tz-vlp-labs
 git pull
 cd /home/devops
 printf "%s" "Please wait, the system will be get ready in 10 mins ..."
-while ! (nc -z -v -w5 vc.vlp.tanzulab.io 443 &> /dev/null && nc -z -v -w5 avi.vlp.tanzulab.io 443 &> /dev/null && nc -z -v -w5 172.16.0.194 6443 &> /dev/null)
+while (nc -z -v -w5 vc.vlp.tanzulab.io 443 &> /dev/null && nc -z -v -w5 avi.vlp.tanzulab.io 443 &> /dev/null && nc -z -v -w5 172.16.0.194 6443 &> /dev/null)
 do
   printf "%c" "."
   sleep 5
