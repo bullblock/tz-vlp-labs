@@ -15,13 +15,13 @@ do
   printf "%c" "."
   sleep 5
 done
-echo ""
-printf "%s" "ok, ok, ok almost there ..."
-while ! (nc -z -v -w5 172.16.0.230 80 &> /dev/null)
-do
-  printf "%c" "."
-  sleep 5
-done
+# echo ""
+# printf "%s" "ok, ok, ok almost there ..."
+# while ! (nc -z -v -w5 172.16.0.230 80 &> /dev/null)
+# do
+#   printf "%c" "."
+#   sleep 5
+# done
 printf "\n%s\n" "Okey, here you go !!! details please click the README on desktop"
 sleep 30
 exit
