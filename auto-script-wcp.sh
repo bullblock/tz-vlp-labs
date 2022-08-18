@@ -13,8 +13,12 @@ kubectl vsphere login --server=https://wcp.vlp.tanzulab.io -u administrator@vsph
 kubectl config use-context wcp.vlp.tanzulab.io &> /dev/null
 while (kubectl get pod -A | grep -i csi | grep -v Running &> /dev/null)
 do
-  printf "%c" "."
-  sleep 5
+  sleep 10
+  while (kubectl get pod -A | grep -i csi | grep -v Running &> /dev/null)
+  do
+    printf "%c" "."
+    sleep 5
+  done
 done
 # echo ""
 # printf "%s" "ok, ok, ok almost there ..."
