@@ -9,7 +9,7 @@ do
   sleep 5
 done
 echo ""
-printf "%s" "few more mins, you may go to grab a cup of coffee ..."
+printf "%s" "few more mins, you may go to grab a cup of coffee now and come back later ..."
 while ! (nc -z -v -w5 172.16.0.225 80 &> /dev/null)
 do
   printf "%c" "."
