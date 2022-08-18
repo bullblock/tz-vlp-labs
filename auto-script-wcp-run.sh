@@ -21,6 +21,7 @@ do
   done
 done
 kubectl vsphere login --server=https://wcp.vlp.tanzulab.io -u administrator@vsphere.local --tanzu-kubernetes-cluster-namesapce=tanzulab --tanzu-kubernetes-cluster-name=vlp-cls-1 &> /dev/null
+kubectl config use-context vlp-cls-1 &> /dev/null
 kubectl apply -f /home/devops/workspaces/tz-vlp-labs/microservices-demo/deploy/kubernetes/complete-demo.yaml &> /dev/null
 echo ""
 printf "%s" "ok, ok, ok almost there ..."
