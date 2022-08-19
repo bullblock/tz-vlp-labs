@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 printf "%s" "Please wait, the system will be get ready in 10 mins ..."
-# sleep 180
+sleep 60
 while ! (nc -z -v -w5 vc.vlp.tanzulab.io 443 &> /dev/null && nc -z -v -w5 avi.vlp.tanzulab.io 443 &> /dev/null && nc -z -v -w5 172.16.0.225 6443 &> /dev/null)
 do
   printf "%c" "."
