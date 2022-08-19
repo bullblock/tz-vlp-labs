@@ -11,10 +11,10 @@ printf "%s" "few more mins, you may go to grab a cup of coffee now and come back
 export KUBECTL_VSPHERE_PASSWORD="Admin!23Admin"
 kubectl vsphere login --server=https://wcp.vlp.tanzulab.io -u administrator@vsphere.local &> /dev/null
 kubectl config use-context wcp.vlp.tanzulab.io &> /dev/null
-while (kubectl get pod -A | grep -i csi | grep -v Running &> /dev/null)
+while (kubectl get pod -A | grep -i csi | grep -v Running | grep -v Pending &> /dev/null)
 do
   sleep 10
-  while (kubectl get pod -A | grep -i csi | grep -v Running &> /dev/null)
+  while (kubectl get pod -A | grep -i csi | grep -v Running | grep -v Pending &> /dev/null)
   do
     printf "%c" "."
     sleep 5
