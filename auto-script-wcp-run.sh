@@ -1,4 +1,5 @@
 #!/usr/bin/bash
+echo "You may click the README on the desktop for details."
 printf "%s" "Please wait, the system will be get ready in 10 mins ..."
 sleep 60
 while ! (nc -z -v -w5 vc.vlp.tanzulab.io 443 &> /dev/null && nc -z -v -w5 avi.vlp.tanzulab.io 443 &> /dev/null && nc -z -v -w5 wcp.vlp.tanzulab.io 6443 &> /dev/null)
