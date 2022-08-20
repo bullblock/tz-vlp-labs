@@ -1,5 +1,5 @@
 name: vlp-cls-1-pool
-replicas: 1
+replicas: 3
 labels:
   name: vlp-cls-1-pool
   env: dev
