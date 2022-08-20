@@ -1,0 +1,16 @@
+name: tap-cls-pool
+replicas: 3
+labels:
+  name: tap-cls-pool
+  env: dev
+vsphere:
+  memoryMiB: 32768
+  diskGiB: 160
+  numCPUs: 8
+  datacenter: /dc
+  datastore: /dc/datastore/ds
+  storagePolicyName: ds
+  folder: /dc/vm/tap-cls
+  resourcePool: /dc/host/cls/Resources/tap-cls
+  vcIP: vc.vlp.tanzulab.io
+  network: /dc/network/dc-cls-workload

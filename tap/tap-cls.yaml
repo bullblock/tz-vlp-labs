@@ -1,0 +1,133 @@
+#! ---------------------------------------------------------------------
+#! Basic cluster creation configuration
+#! ---------------------------------------------------------------------
+
+CLUSTER_NAME:					tap-cls
+CLUSTER_PLAN:					dev
+NAMESPACE:					default
+CLUSTER_API_SERVER_PORT:			6443
+CNI:						antrea
+IDENTITY_MANAGEMENT_TYPE:			none
+
+#! ---------------------------------------------------------------------
+#! Node configuration
+#! ---------------------------------------------------------------------
+
+# SIZE:
+# CONTROLPLANE_SIZE:
+# WORKER_SIZE:
+
+# VSPHERE_NUM_CPUS: 2
+# VSPHERE_DISK_GIB: 40
+# VSPHERE_MEM_MIB: 4096
+
+VSPHERE_CONTROL_PLANE_NUM_CPUS:			4
+VSPHERE_CONTROL_PLANE_DISK_GIB:			80
+VSPHERE_CONTROL_PLANE_MEM_MIB:			16384
+VSPHERE_WORKER_NUM_CPUS:			4
+VSPHERE_WORKER_DISK_GIB:			80
+VSPHERE_WORKER_MEM_MIB:				16384
+
+CONTROL_PLANE_MACHINE_COUNT:			1
+WORKER_MACHINE_COUNT:				1
+# WORKER_MACHINE_COUNT_0:
+# WORKER_MACHINE_COUNT_1:
+# WORKER_MACHINE_COUNT_2:
+
+#! ---------------------------------------------------------------------
+#! vSphere configuration
+#! ---------------------------------------------------------------------
+DEPLOY_TKG_ON_VSPHERE7:				true
+VSPHERE_NETWORK:				/dc/network/dc-cls-workload
+# VSPHERE_TEMPLATE:
+VSPHERE_SSH_AUTHORIZED_KEY:			"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDJaT824X4e632wOFuJrTj+7t96rjS2ujFCYm5m5hzlnv83QZRewdau8P162wZN8Ki2AkY5bUryKNwVUGaN+N+DgPvhoIcSv1eH69RN/DAOnFhjUDGUaDm6WghSo948Dz+lQ4/D0IJvApozQy8ENBImw21HoSL0PuYtSTLRLJs2d6lg32UTHyj3XQxy1U3vGfa/1iRe8hH9DqfOr/uzqTiS4fE+oEnkCuf8cw3JLW5Z83wDYfBPmH7yyazICNwMkbQinCK5QVRLPyybMnNLhreTnsPn4Z25FSxlwytYBoUEHZX7rWIB8u4GP/U7RRJgSytLY5OSufd2VZIwRaqgTZor2iEeWdhilL981uQWnL3ix8r6Fg5gO7lUjRlykwH6psLwBchnc/kiqq90locf7R/M0bSYVMj3gzPtXCs0UgHZBfqUtGF1cYpdlwo01FpItw8sdioA7wuH4dNXMjZZ8f88eZFWZFyEfMOYiQ/254jo8SwQbjCR+bCIY48LWhgeEfEljC+/TfXNyj/qSWEavFT0Kgp+Q5H0+jG407qcMfvDbswrsc++OtXabyUgkanfw7R3W1grGnfmhEzs8FSP3zUBXfW3z9sUzaWtnMUlAxv1ye9vEHGzu322CU1FRFivXAOL6FLSZ9RXSjLt4Mld11Kis5lAKWfCjM1Nt3UbQY7Qvw=="
+VSPHERE_USERNAME:				administrator@vsphere.local
+VSPHERE_PASSWORD:				<encoded:QWRtaW4hMjNBZG1pbg==>
+VSPHERE_SERVER:					vc.vlp.tanzulab.io
+VSPHERE_DATACENTER:				/dc
+VSPHERE_RESOURCE_POOL:				/dc/host/cls/Resources/tap-cls
+VSPHERE_DATASTORE:				/dc/datastore/ds
+VSPHERE_STORAGE_POLICY_ID:			ds
+VSPHERE_FOLDER:					/dc/vm/tap-cls
+VSPHERE_TLS_THUMBPRINT:				74:10:91:9C:A2:40:31:C0:20:F1:51:1B:77:74:B5:E0:78:36:90:9C
+VSPHERE_INSECURE:				false
+VSPHERE_CONTROL_PLANE_ENDPOINT:			172.16.0.132
+VSPHERE_CONTROL_PLANE_ENDPOINT_PORT:		6443
+AVI_CONTROL_PLANE_HA_PROVIDER:			false
+
+#! ---------------------------------------------------------------------
+#! NSX specific configuration for enabling NSX routable pods
+#! ---------------------------------------------------------------------
+
+# NSXT_POD_ROUTING_ENABLED: false
+# NSXT_ROUTER_PATH: ""
+# NSXT_USERNAME: ""
+# NSXT_PASSWORD: ""
+# NSXT_MANAGER_HOST: ""
+# NSXT_ALLOW_UNVERIFIED_SSL: false
+# NSXT_REMOTE_AUTH: false
+# NSXT_VMC_ACCESS_TOKEN: ""
+# NSXT_VMC_AUTH_HOST: ""
+# NSXT_CLIENT_CERT_KEY_DATA: ""
+# NSXT_CLIENT_CERT_DATA: ""
+# NSXT_ROOT_CA_DATA: ""
+# NSXT_SECRET_NAME: "cloud-provider-vsphere-nsxt-credentials"
+# NSXT_SECRET_NAMESPACE: "kube-system"
+
+#! ---------------------------------------------------------------------
+#! Machine Health Check configuration
+#! ---------------------------------------------------------------------
+
+# ENABLE_MHC:
+# ENABLE_MHC_CONTROL_PLANE:			true
+# ENABLE_MHC_WORKER_NODE:			true
+# MHC_UNKNOWN_STATUS_TIMEOUT:			5m
+# MHC_FALSE_STATUS_TIMEOUT:			12m
+
+#! ---------------------------------------------------------------------
+#! Common configuration
+#! ---------------------------------------------------------------------
+
+# TKG_CUSTOM_IMAGE_REPOSITORY: ""
+# TKG_CUSTOM_IMAGE_REPOSITORY_CA_CERTIFICATE: ""
+
+# TKG_HTTP_PROXY: ""
+# TKG_HTTPS_PROXY: ""
+# TKG_NO_PROXY: ""
+
+ENABLE_AUDIT_LOGGING:				true
+ENABLE_DEFAULT_STORAGE_CLASS:			true
+
+CLUSTER_CIDR:					100.96.0.0/11
+SERVICE_CIDR:					100.64.0.0/13
+
+OS_NAME:					ubuntu
+OS_VERSION:					"20.04"
+OS_ARCH:					amd64
+
+#! ---------------------------------------------------------------------
+#! Autoscaler configuration
+#! ---------------------------------------------------------------------
+
+ENABLE_AUTOSCALER:				true
+AUTOSCALER_MAX_NODES_TOTAL: 			"9"
+AUTOSCALER_SCALE_DOWN_DELAY_AFTER_ADD:		"10m"
+AUTOSCALER_SCALE_DOWN_DELAY_AFTER_DELETE:	"10s"
+AUTOSCALER_SCALE_DOWN_DELAY_AFTER_FAILURE:	"3m"
+AUTOSCALER_SCALE_DOWN_UNNEEDED_TIME:		"10m"
+AUTOSCALER_MAX_NODE_PROVISION_TIME:		"15m"
+AUTOSCALER_MIN_SIZE_0:				"1"
+AUTOSCALER_MAX_SIZE_0:				"3"
+AUTOSCALER_MIN_SIZE_1:				"1"
+AUTOSCALER_MAX_SIZE_1:				"3"
+AUTOSCALER_MIN_SIZE_2:				"1"
+AUTOSCALER_MAX_SIZE_2:				"3"
+
+#! ---------------------------------------------------------------------
+#! Antrea CNI configuration
+#! ---------------------------------------------------------------------
+# ANTREA_NO_SNAT:				true
+# ANTREA_TRAFFIC_ENCAP_MODE:			"encap"
+# ANTREA_PROXY:					false
+# ANTREA_POLICY:				true
+# ANTREA_TRACEFLOW:				false
