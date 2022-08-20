@@ -1,7 +1,7 @@
 profile: full
 
 shared:
-  ingress_domain: vlp.tanzulab.io
+  ingress_domain: tap.vlp.tanzulab.io
 
 ceip_policy_disclosed: TRUE
 
@@ -9,8 +9,16 @@ buildservice:
   kp_default_repository: "dev.registry.tanzu.vmware.com/sliang-tap/build-service"
   kp_default_repository_username: "xinstevenl@vmware.com"
   kp_default_repository_password: "#Dr34mJ0b#"
+  exclude_dependencies: true
 
 supply_chain: basic
+
+cnrs:
+  provider: local
+
+accelerator:
+  server:
+    service_type: "ClusterIP"
 
 ootb_supply_chain_basic:
   registry:
@@ -23,18 +31,18 @@ tap_gui:
   service_type: ClusterIP
   app_config:
     app:
-      baseUrl: http://tap-gui.vlp.tanzulab.io
+      baseUrl: http://tap-gui.tap.vlp.tanzulab.io
     catalog:
       locations:
         - type: url
-          target: https://GIT-CATALOG-URL/catalog-info.yaml
+          target: https://raw.githubusercontent.com/bullblock/tz-vlp-labs/main/tap/catalog-info.yaml
     backend:
-      baseUrl: http://tap-gui.INGRESS-DOMAIN
+      baseUrl: http://tap-gui.tap.vlp.tanzulab.io
       cors:
-        origin: http://tap-gui.INGRESS-DOMAIN
+        origin: http://tap-gui.tap.vlp.tanzulab.io
 
 metadata_store:
-  ns_for_export_app_cert: "MY-DEV-NAMESPACE"
+  ns_for_export_app_cert: "default"
   app_service_type: ClusterIP
 
 scanning:
@@ -42,13 +50,15 @@ scanning:
     url: "" # Disable embedded integration since it's deprecated
 
 grype:
-  namespace: "MY-DEV-NAMESPACE" # (optional) Defaults to default namespace.
-  targetImagePullSecret: "TARGET-REGISTRY-CREDENTIALS-SECRET"
+  namespace: "default"
+  targetImagePullSecret: "tap-registry"
   metadataStore:
-    url: "METADATA-STORE-URL" # (optional) Defaults to "https://metadata-store-app.metadata-store.svc.cluster.local:8443"
+    url: ""
     caSecret:
-      name: "CA-SECRET-NAME" # (optional) Defaults to "app-tls-cert"
-      importFromNamespace: "SECRET-NAMESPACE" # (optional) Defaults to "metadata-store"
-    authSecret: # (optional) Defaults all values to empty. Only for multicluster
-      name: "TOKEN-SECRET-NAME"
-      importFromNamespace: "SECRET-NAMESPACE"
+      name: ""
+      importFromNamespace: ""
+
+contour:
+  envoy:
+    service:
+      type: LoadBalancer
