@@ -7,8 +7,8 @@ ceip_policy_disclosed: TRUE
 
 buildservice:
   kp_default_repository: "dev.registry.tanzu.vmware.com/sliang-tap/build-service"
-  kp_default_repository_username: "xinstevenl@vmware.com"
-  kp_default_repository_password: "#Dr34mJ0b#"
+  kp_default_repository_username: ""
+  kp_default_repository_password: ""
   exclude_dependencies: true
 
 supply_chain: basic
