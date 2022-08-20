@@ -25,7 +25,7 @@ ootb_supply_chain_basic:
     server: "dev.registry.tanzu.vmware.com"
     repository: "sliang-tap/supply-chain"
   gitops:
-    ssh_secret: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDJaT824X4e632wOFuJrTj+7t96rjS2ujFCYm5m5hzlnv83QZRewdau8P162wZN8Ki2AkY5bUryKNwVUGaN+N+DgPvhoIcSv1eH69RN/DAOnFhjUDGUaDm6WghSo948Dz+lQ4/D0IJvApozQy8ENBImw21HoSL0PuYtSTLRLJs2d6lg32UTHyj3XQxy1U3vGfa/1iRe8hH9DqfOr/uzqTiS4fE+oEnkCuf8cw3JLW5Z83wDYfBPmH7yyazICNwMkbQinCK5QVRLPyybMnNLhreTnsPn4Z25FSxlwytYBoUEHZX7rWIB8u4GP/U7RRJgSytLY5OSufd2VZIwRaqgTZor2iEeWdhilL981uQWnL3ix8r6Fg5gO7lUjRlykwH6psLwBchnc/kiqq90locf7R/M0bSYVMj3gzPtXCs0UgHZBfqUtGF1cYpdlwo01FpItw8sdioA7wuH4dNXMjZZ8f88eZFWZFyEfMOYiQ/254jo8SwQbjCR+bCIY48LWhgeEfEljC+/TfXNyj/qSWEavFT0Kgp+Q5H0+jG407qcMfvDbswrsc++OtXabyUgkanfw7R3W1grGnfmhEzs8FSP3zUBXfW3z9sUzaWtnMUlAxv1ye9vEHGzu322CU1FRFivXAOL6FLSZ9RXSjLt4Mld11Kis5lAKWfCjM1Nt3UbQY7Qvw=="
+    ssh_secret: ""
 
 tap_gui:
   service_type: ClusterIP
