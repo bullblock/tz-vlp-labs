@@ -1,0 +1,54 @@
+profile: full
+
+shared:
+  ingress_domain: vlp.tanzulab.io
+
+ceip_policy_disclosed: TRUE
+
+buildservice:
+  kp_default_repository: "dev.registry.tanzu.vmware.com/sliang-tap/build-service"
+  kp_default_repository_username: "xinstevenl@vmware.com"
+  kp_default_repository_password: "#Dr34mJ0b#"
+
+supply_chain: basic
+
+ootb_supply_chain_basic:
+  registry:
+    server: "dev.registry.tanzu.vmware.com"
+    repository: "sliang-tap/supply-chain"
+  gitops:
+    ssh_secret: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDJaT824X4e632wOFuJrTj+7t96rjS2ujFCYm5m5hzlnv83QZRewdau8P162wZN8Ki2AkY5bUryKNwVUGaN+N+DgPvhoIcSv1eH69RN/DAOnFhjUDGUaDm6WghSo948Dz+lQ4/D0IJvApozQy8ENBImw21HoSL0PuYtSTLRLJs2d6lg32UTHyj3XQxy1U3vGfa/1iRe8hH9DqfOr/uzqTiS4fE+oEnkCuf8cw3JLW5Z83wDYfBPmH7yyazICNwMkbQinCK5QVRLPyybMnNLhreTnsPn4Z25FSxlwytYBoUEHZX7rWIB8u4GP/U7RRJgSytLY5OSufd2VZIwRaqgTZor2iEeWdhilL981uQWnL3ix8r6Fg5gO7lUjRlykwH6psLwBchnc/kiqq90locf7R/M0bSYVMj3gzPtXCs0UgHZBfqUtGF1cYpdlwo01FpItw8sdioA7wuH4dNXMjZZ8f88eZFWZFyEfMOYiQ/254jo8SwQbjCR+bCIY48LWhgeEfEljC+/TfXNyj/qSWEavFT0Kgp+Q5H0+jG407qcMfvDbswrsc++OtXabyUgkanfw7R3W1grGnfmhEzs8FSP3zUBXfW3z9sUzaWtnMUlAxv1ye9vEHGzu322CU1FRFivXAOL6FLSZ9RXSjLt4Mld11Kis5lAKWfCjM1Nt3UbQY7Qvw=="
+
+tap_gui:
+  service_type: ClusterIP
+  app_config:
+    app:
+      baseUrl: http://tap-gui.vlp.tanzulab.io
+    catalog:
+      locations:
+        - type: url
+          target: https://GIT-CATALOG-URL/catalog-info.yaml
+    backend:
+      baseUrl: http://tap-gui.INGRESS-DOMAIN
+      cors:
+        origin: http://tap-gui.INGRESS-DOMAIN
+
+metadata_store:
+  ns_for_export_app_cert: "MY-DEV-NAMESPACE"
+  app_service_type: ClusterIP
+
+scanning:
+  metadataStore:
+    url: "" # Disable embedded integration since it's deprecated
+
+grype:
+  namespace: "MY-DEV-NAMESPACE" # (optional) Defaults to default namespace.
+  targetImagePullSecret: "TARGET-REGISTRY-CREDENTIALS-SECRET"
+  metadataStore:
+    url: "METADATA-STORE-URL" # (optional) Defaults to "https://metadata-store-app.metadata-store.svc.cluster.local:8443"
+    caSecret:
+      name: "CA-SECRET-NAME" # (optional) Defaults to "app-tls-cert"
+      importFromNamespace: "SECRET-NAMESPACE" # (optional) Defaults to "metadata-store"
+    authSecret: # (optional) Defaults all values to empty. Only for multicluster
+      name: "TOKEN-SECRET-NAME"
+      importFromNamespace: "SECRET-NAMESPACE"
