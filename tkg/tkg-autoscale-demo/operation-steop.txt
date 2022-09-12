@@ -1,0 +1,17 @@
+MECC DEMO (TKG-AUTOscale)
+
+tanzu login 					#change mgmt to vsphere mgmt
+kcu tz-vsphere-mgmt				#switch to TKG vsphere mgmt
+tanzu cluster list				#show cluster got 1 node only but the yaml file got 3 nodes max is 9 node
+kcu tz-vsphere-cls-1			 	#switch to cls-1 workload
+kg node -o wide					#to verify the available nodes
+￼
+
+kubectl apply -f php-apache.yaml		#deploy php
+kubectl get pod																									#show the running pod
+kubectl autoscale deployment php-apache --cpu-percent=80 --min=1 --max=10			#deploy HPA to 10 (Horizontal Pod Autoscaler)
+kubectl get hpa					#show the occupation
+kubectl apply -f infinite-calls.yaml		#deploy the cost POD
+kubectl scale deployment/infinite-calls --replicas 40						#trigger the cost POD and wait
+kubectl get node										#show the nodes changed to 2
+	#delete everything and wait 10m, should come back to 1 node again
