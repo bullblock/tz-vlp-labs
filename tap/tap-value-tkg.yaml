@@ -22,8 +22,8 @@ accelerator:
 
 ootb_supply_chain_basic:
   registry:
-    server: ""
-    repository: ""
+    server: "dev.registry.tanzu.vmware.com"
+    repository: "sliang-tap/supply-chain"
   gitops:
     ssh_secret: ""
 
