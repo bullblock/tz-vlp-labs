@@ -1,0 +1,29 @@
+if [ -z "$EASYRSA_CALLER" ]; then
+	echo "You appear to be sourcing an Easy-RSA *vars* file. This is" >&2
+	echo "no longer necessary and is disallowed. See the section called" >&2
+	echo "*How to use this file* near the top comments for more details." >&2
+	return 1
+fi
+set_var EASYRSA			"${0%/*}"
+set_var EASYRSA_OPENSSL		"openssl"
+set_var EASYRSA_PKI		"/Users/steven/workspaces/certs/easy-rsa/pki"
+set_var EASYRSA_TEMP_DIR	"$EASYRSA_PKI/temp"
+set_var EASYRSA_DN		"org"
+set_var EASYRSA_REQ_COUNTRY	"SG"
+set_var EASYRSA_REQ_PROVINCE	"SGP"
+set_var EASYRSA_REQ_CITY	"Singapore"
+set_var EASYRSA_REQ_ORG		"VMware Singapore Ltd., Pte."
+set_var EASYRSA_REQ_EMAIL	"xinstevenl@vmware.com"
+set_var EASYRSA_REQ_OU		"Mapbu"
+set_var EASYRSA_NO_PASS		1
+set_var EASYRSA_KEY_SIZE	4096
+set_var EASYRSA_ALGO		rsa
+set_var EASYRSA_CURVE		secp384r1
+set_var EASYRSA_CA_EXPIRE	3650
+set_var EASYRSA_CERT_EXPIRE	3650
+set_var EASYRSA_CRL_DAYS	3650
+set_var EASYRSA_RAND_SN		"yes"
+set_var EASYRSA_CERT_RENEW	180
+set_var EASYRSA_FIX_OFFSET 	1
+set_var EASYRSA_NS_SUPPORT	"yes"
+set_var EASYRSA_NS_COMMENT	"VMware Steven Easy-RSA Generated Certificate"
