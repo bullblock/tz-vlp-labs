@@ -1,7 +1,17 @@
 profile: full
 
 shared:
-  ingress_domain: tap.vlp.tanzulab.io
+  ingress_domain: "tap.vlp.tanzulab.io"
+  ingress_issuer: "tap-ingress-selfsigned"
+  image_registry:
+    project_path: "harbor.tanzulab.io/xinstevenl"
+    secret:
+      name: "registry-credentials"
+      namespace: "tap-install"
+  kubernetes_distribution: ""
+  kubernetes_version: "1.24.9"
+  ca_cert_data: |
+    
 
 ceip_policy_disclosed: TRUE
 
