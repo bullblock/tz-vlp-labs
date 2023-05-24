@@ -20,10 +20,10 @@ tanzu package repository get tanzu-tap-repository --namespace tap-install
 tanzu package available list --namespace tap-install
 tanzu package available list tap.tanzu.vmware.com --namespace tap-install
 tanzu package install tap -p tap.tanzu.vmware.com -v ${TAP_VERSION} --values-file tap-value-maz9.yaml -n tap-install
-tanzu package available list buildservice.tanzu.vmware.com --namespace tap-install
-imgpkg copy -b registry.tanzu.vmware.com/tanzu-application-platform/full-tbs-deps-package-repo:${TBS_VERSION} --to-repo ${INSTALL_REGISTRY_HOSTNAME}/${INSTALL_REPO}/tbs-full-deps
-tanzu package repository add tbs-full-deps-repository --url ${INSTALL_REGISTRY_HOSTNAME}/${INSTALL_REPO}/tbs-full-deps:${TBS_VERSION} --namespace tap-install
-tanzu package install full-tbs-deps -p full-tbs-deps.tanzu.vmware.com -v ${TBS_VERSION} -n tap-install
+# tanzu package available list buildservice.tanzu.vmware.com --namespace tap-install
+# imgpkg copy -b registry.tanzu.vmware.com/tanzu-application-platform/full-tbs-deps-package-repo:${TBS_VERSION} --to-repo ${INSTALL_REGISTRY_HOSTNAME}/${INSTALL_REPO}/tbs-full-deps
+# tanzu package repository add tbs-full-deps-repository --url ${INSTALL_REGISTRY_HOSTNAME}/${INSTALL_REPO}/tbs-full-deps:${TBS_VERSION} --namespace tap-install
+# tanzu package install full-tbs-deps -p full-tbs-deps.tanzu.vmware.com -v ${TBS_VERSION} -n tap-install
 tanzu secret registry add registry-credentials --server ${INSTALL_REGISTRY_HOSTNAME} --username ${INSTALL_REGISTRY_USERNAME} --password ${INSTALL_REGISTRY_PASSWORD} --namespace default
 kubectl apply -f tap-default.yaml -n default
 
