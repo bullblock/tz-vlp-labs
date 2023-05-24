@@ -47,7 +47,7 @@ supply_chain: testing_scanning
 ootb_supply_chain_testing_scanning:
   registry:
     server: "harbor.tanzulab.io"
-    repository: "xinstevenl"
+    repository: "xinstevenl/supply-chain"
   gitops:
     ssh_secret: ""
 
