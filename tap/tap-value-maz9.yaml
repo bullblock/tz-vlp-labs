@@ -43,13 +43,33 @@ shared:
 
 ceip_policy_disclosed: TRUE
 
+supply_chain: testing_scanning
+ootb_supply_chain_testing_scanning:
+  registry:
+    server: "harbor.tanzulab.io"
+    repository: "xinstevenl"
+  gitops:
+    ssh_secret: ""
+
+contour:
+  envoy:
+    service:
+      type: LoadBalancer
+
 buildservice:
-  kp_default_repository: "dev.registry.tanzu.vmware.com/sliang-tap/build-service"
-  kp_default_repository_username: "xinstevenl@vmware.com"
-  kp_default_repository_password: "#Dr34mJ0b#"
+  kp_default_repository: "harbor.tanzulab.io/xinstevenl/build-service"
+  kp_default_repository_secret:
+    name: "registry-credentials"
+    namespace: "tap-install"
   exclude_dependencies: true
 
-supply_chain: basic
+tap_gui:
+  metadataStoreAutoconfiguration: true 
+  app_config:
+    catalog:
+      locations:
+        - type: url
+          target: https://GIT-CATALOG-URL/catalog-info.yaml
 
 cnrs:
   provider: local
