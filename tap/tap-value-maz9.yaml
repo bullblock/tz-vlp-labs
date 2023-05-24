@@ -43,8 +43,8 @@ shared:
 
 ceip_policy_disclosed: TRUE
 
-supply_chain: testing_scanning
-ootb_supply_chain_testing_scanning:
+supply_chain: basic
+ootb_supply_chain_basic:
   registry:
     server: "harbor.tanzulab.io"
     repository: "xinstevenl/supply-chain"
