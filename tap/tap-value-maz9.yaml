@@ -69,35 +69,7 @@ tap_gui:
     catalog:
       locations:
         - type: url
-          target: https://GIT-CATALOG-URL/catalog-info.yaml
-
-cnrs:
-  provider: local
-
-accelerator:
-  server:
-    service_type: "ClusterIP"
-
-ootb_supply_chain_basic:
-  registry:
-    server: "dev.registry.tanzu.vmware.com"
-    repository: "sliang-tap/supply-chain"
-  gitops:
-    ssh_secret: ""
-
-tap_gui:
-  service_type: ClusterIP
-  app_config:
-    app:
-      baseUrl: http://tap-gui.tap.vlp.tanzulab.io
-    catalog:
-      locations:
-        - type: url
           target: https://raw.githubusercontent.com/bullblock/tz-vlp-labs/main/tap/catalog-info.yaml
-    backend:
-      baseUrl: http://tap-gui.tap.vlp.tanzulab.io
-      cors:
-        origin: http://tap-gui.tap.vlp.tanzulab.io
 
 metadata_store:
   ns_for_export_app_cert: "default"
@@ -105,18 +77,15 @@ metadata_store:
 
 scanning:
   metadataStore:
-    url: "" # Disable embedded integration since it's deprecated
+    url: ""
 
 grype:
   namespace: "default"
-  targetImagePullSecret: "tap-registry"
-  metadataStore:
-    url: ""
-    caSecret:
-      name: ""
-      importFromNamespace: ""
+  targetImagePullSecret: "registry-credentials"
 
-contour:
-  envoy:
-    service:
-      type: LoadBalancer
+policy:
+  tuf_enabled: false
+
+tap_telemetry:
+  customer_entitlement_account_number: ""
+
