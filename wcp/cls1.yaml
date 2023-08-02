@@ -1,0 +1,38 @@
+apiVersion: run.tanzu.vmware.com/v1alpha2
+kind: TanzuKubernetesCluster
+metadata:
+  name: vlp-cls-1
+  namespace: tanzulab
+spec:
+  topology:
+    controlPlane:
+      replicas: 3
+      vmClass: best-effort-large
+      storageClass: ds
+      volumes: 
+        - name: etcd
+          mountPath: /etc/lib/etcd
+          capacity:
+            storage: 32Gi
+      tkr:  
+        reference:
+          name: v1.25.7---vmware.3-fips.1-tkg.1
+    nodePools:
+    - name: vlp-cls-1-pool
+      replicas: 3
+      vmClass: best-effort-large
+      storageClass: ds
+      volumes:
+        - name: containerd
+          mountPath: /var/lib/containerd
+          capacity:
+            storage: 64Gi
+      tkr:  
+        reference:
+          name: v1.25.7---vmware.3-fips.1-tkg.1
+  settings:
+    storage:
+      defaultClass: ds
+    network:
+      cni:
+        name: antrea
