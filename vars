@@ -27,3 +27,4 @@ set_var EASYRSA_CERT_RENEW	180
 set_var EASYRSA_FIX_OFFSET 	1
 set_var EASYRSA_NS_SUPPORT	"yes"
 set_var EASYRSA_NS_COMMENT	"VMware Steven Easy-RSA Generated Certificate"
+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
