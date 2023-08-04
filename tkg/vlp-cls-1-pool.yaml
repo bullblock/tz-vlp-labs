@@ -2,7 +2,7 @@ name: vlp-cls-1-pool
 replicas: 3
 labels:
   name: vlp-cls-1-pool
-  env: dev
+  env: prod
 vsphere:
   memoryMiB: 16384
   diskGiB: 80
