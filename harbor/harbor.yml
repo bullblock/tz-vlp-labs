@@ -14,8 +14,8 @@ https:
   # https port for harbor, default is 443
   port: 443
   # The path of cert and key files for nginx
-  certificate: /home/devops/workspaces/tz-vlp-labs/certs/wild-vlp-tanzulab-biz.pem
-  private_key: /home/devops/workspaces/tz-vlp-labs/certs/wild-vlp-tanzulab-biz.key
+  certificate: /home/devops/workspaces/tz-vlp-labs/certs/harbor.vlp.tanzulab.biz.pem
+  private_key: /home/devops/workspaces/tz-vlp-labs/certs/harbor.vlp.tanzulab.biz.key
 
 # # Uncomment following will enable tls communication between all harbor components
 # internal_tls:
