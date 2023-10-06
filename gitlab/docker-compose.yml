@@ -1,0 +1,27 @@
+version: '3.6'
+services:
+  web:
+    image: 'gitlab/gitlab-ee:latest'
+    restart: always
+    hostname: 'gitlab.vlp.tanzulab.biz'
+    environment:
+      GITLAB_OMNIBUS_CONFIG: |
+        external_url 'https://gitlab.vlp.tanzulab.biz'
+        letsencrypt['enable'] = false
+        nginx['ssl_certificate'] = "/etc/gitlab/ssl/gitlab.vlp.tanzulab.biz.pem"
+        nginx['ssl_certificate_key'] = "/etc/gitlab/ssl/gitlab.vlp.tanzulab.biz.key"
+        nginx['redirect_http_to_https'] = true
+        nginx['http2_enabled'] = true
+        gitlab_rails['display_initial_root_password'] = true
+        gitlab_rails['store_initial_root_password'] = true
+        # Add any other gitlab.rb configuration here, echo on its own line
+    ports:
+      - '172.16.0.4:80:80'
+      - '172.16.0.4:443:443'
+      - '172.16.0.4:22:22'
+    volumes:
+      - '/data/gitlab/config:/etc/gitlab'
+      - '/data/gitlab/logs:/var/log/gitlab'
+      - '/data/gitlab/data:/var/opt/gitlab'
+    shm_size: '256m'
+

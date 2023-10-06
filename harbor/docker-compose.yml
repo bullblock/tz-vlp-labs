@@ -240,8 +240,8 @@ services:
     networks:
       - harbor
     ports:
-      - 80:8080
-      - 443:8443
+      - 172.16.0.3:80:8080
+      - 172.16.0.3:443:8443
     depends_on:
       - registry
       - core

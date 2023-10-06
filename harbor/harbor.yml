@@ -7,12 +7,12 @@ hostname: harbor.vlp.tanzulab.biz
 # http related config
 http:
   # port for http, default is 80. If https enabled, this port will redirect to https port
-  port: 80
+  port: 172.16.0.3:80
 
 # https related config
 https:
   # https port for harbor, default is 443
-  port: 443
+  port: 172.16.0.3:443
   # The path of cert and key files for nginx
   certificate: /home/devops/workspaces/tz-vlp-labs/certs/harbor.vlp.tanzulab.biz.pem
   private_key: /home/devops/workspaces/tz-vlp-labs/certs/harbor.vlp.tanzulab.biz.key
