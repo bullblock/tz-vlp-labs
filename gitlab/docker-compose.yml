@@ -16,9 +16,9 @@ services:
         gitlab_rails['store_initial_root_password'] = true
         # Add any other gitlab.rb configuration here, echo on its own line
     ports:
-      - '172.16.0.4:80:80'
-      - '172.16.0.4:443:443'
-      - '172.16.0.4:22:22'
+      - '6080:80'
+      - '6443:443'
+      - '6022:22'
     volumes:
       - '/data/gitlab/config:/etc/gitlab'
       - '/data/gitlab/logs:/var/log/gitlab'
