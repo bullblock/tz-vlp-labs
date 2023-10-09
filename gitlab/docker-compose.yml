@@ -2,7 +2,7 @@ version: '3.6'
 services:
   web:
     image: 'gitlab/gitlab-ee:latest'
-    restart: always
+    restart: 'no'
     hostname: 'gitlab.vlp.tanzulab.biz'
     environment:
       GITLAB_OMNIBUS_CONFIG: |
