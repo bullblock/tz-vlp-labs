@@ -13,7 +13,7 @@ echo ""
 printf "%s" "few more mins, you may go to grab a cup of coffee now and come back later ..."
 kubectl config use-context tap &> /dev/null
 
-while ! (nc -z -v -w5 tap.vlp.tanzulab.io 6443 &> /dev/null)
+while nc -z -v -w5 tap.vlp.tanzulab.io 6443 &> /dev/null
 do
   printf "%c" "."
   sleep 5
