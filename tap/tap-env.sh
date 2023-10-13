@@ -1,11 +1,11 @@
 export IMGPKG_REGISTRY_HOSTNAME_0=registry.tanzu.vmware.com
 export IMGPKG_REGISTRY_USERNAME_0="xinstevenl@vmware.com"
 export IMGPKG_REGISTRY_PASSWORD_0='Admin!23Admin'
-export IMGPKG_REGISTRY_HOSTNAME_1=harbor.tanzulab.io
-export IMGPKG_REGISTRY_USERNAME_1="xinstevenl@vmware.com"
+export IMGPKG_REGISTRY_HOSTNAME_1=harbor.vlp.tanzulab.biz
+export IMGPKG_REGISTRY_USERNAME_1="devops"
 export IMGPKG_REGISTRY_PASSWORD_1='Admin!23Admin'
-export INSTALL_REGISTRY_HOSTNAME=harbor.tanzulab.io
-export INSTALL_REGISTRY_USERNAME="xinstevenl@vmware.com"
+export INSTALL_REGISTRY_HOSTNAME=harbor.vlp.tanzulab.biz
+export INSTALL_REGISTRY_USERNAME="devops"
 export INSTALL_REGISTRY_PASSWORD='Admin!23Admin'
 export TAP_VERSION="1.5.1"
 export TBS_VERSION="1.10.9"
